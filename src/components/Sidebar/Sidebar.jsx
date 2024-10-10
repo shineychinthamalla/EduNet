@@ -1,54 +1,79 @@
 // app/components/Sidebar.js
+"use client";
 import Image from "next/image";
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import GroupIcon from "@mui/icons-material/Group";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import FolderIcon from "@mui/icons-material/Folder";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-const links = [
+const paths = [
   {
     title: "Home",
-    link: "/home",
+    path: "/",
+    icon: HomeIcon,
   },
   {
-    title: "Home",
-    link: "/home",
+    title: "Profile",
+    path: "/profile",
+    icon: PersonIcon,
   },
   {
-    title: "Home",
-    link: "/home",
+    title: "Networking",
+    path: "/networking",
+    icon: GroupIcon,
   },
   {
-    title: "Home",
-    link: "/home",
+    title: "Opportunities",
+    path: "/opportunities",
+    icon: WorkOutlineIcon,
   },
   {
-    title: "Home",
-    link: "/home",
+    title: "Events",
+    path: "/events",
+    icon: CalendarMonthIcon,
   },
   {
-    title: "Home",
-    link: "/home",
+    title: "Resources ",
+    path: "/resources",
+    icon: FolderIcon,
   },
   {
-    title: "Home",
-    link: "/home",
+    title: "Settings",
+    path: "/settings",
+    icon: SettingsIcon,
   },
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <nav className="w-64 h-full bg-gray-100 p-8 border-r border-gray-300">
-      <div className="flex flex-col items-center h-full justify-between border-2">
-        {/* First container */}
-        <div className="w-full h-32 flex justify-center items-center border-2">
+    <nav className="w-64 h-full bg-gray-100 p-8 border-r ">
+      <div className="flex flex-col items-center h-4/5 justify-between ">
+        <div className="w-full h-32 flex justify-center items-center ">
           <Image src="/logo1.svg" height={200} width={150} alt="Logo 1" />
         </div>
-        <div className="w-full h-10 flex justify-center items-center border-2">
-          <Image src="/logo1.svg" height={40} width={40} alt="Logo 2" />
-        </div>
 
-        {links.map((ind) => {
-          <div className="w-full h-10 flex justify-center items-center border-2">
-            <p>{ind.title}</p>
-          </div>;
+        {paths.map((ind) => {
+          const IconComponent = ind.icon;
+          const isActive = pathname === ind.path; // Compare pathname directly
+
+          return (
+            <div
+              key={ind.title}
+              className={`w-full h-10 flex justify-start items-center  p-2 ${
+                isActive ? "bg-gray-300 text-black rounded-lg" : "text-black"
+              }`}
+            >
+              <IconComponent sx={{ fontSize: 28 }} />
+              <p className="ml-2">{ind.title}</p>
+            </div>
+          );
         })}
       </div>
     </nav>
