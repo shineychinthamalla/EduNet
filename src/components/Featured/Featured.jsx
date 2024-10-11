@@ -4,33 +4,23 @@
 const profiles = [
   {
     name: "Florencio Dorrance",
-    title: "Market Development Manager",
+    title: "Project Manager",
     image: "/profile1.jpg",
   },
   {
     name: "Benny Spanbauer",
-    title: "Area Sales Manager",
+    title: " Sales Manager",
     image: "/profile2.jpg",
   },
   {
     name: "Jamel Eusebio",
-    title: "Administrator",
+    title: "React Dev",
     image: "/profile3.jpg",
   },
   {
     name: "Lavern Laboy",
-    title: "Account Executive",
+    title: "Backend Dev",
     image: "/profile4.jpg",
-  },
-  {
-    name: "Alfonzo Schuessler",
-    title: "Proposal Writer",
-    image: "/profile5.jpg",
-  },
-  {
-    name: "Daryl Nehls",
-    title: "Nursing Assistant",
-    image: "/profile6.jpg",
   },
 ];
 
@@ -50,18 +40,13 @@ const events = [
     name: "Create An LMS Website With EduNet",
     date: "Sept 25, 2024",
   },
-  {
-    id: 4,
-    name: "Create An LMS Website With EduNet",
-    date: "Sept 25, 2024",
-  },
 ];
 
 export default function FeaturedProfile() {
   return (
     <div className="w-3/12 bg-white p-5 shadow-md h-full">
-      <div className="p-6">
-        <h2 className="text-xl font-semibold border-b pb-2">
+      <div className="p-2">
+        <h2 className="text-xl font-semibold border-b pb-2 text-center">
           Featured Profile
         </h2>
         <div className="mt-4">
@@ -70,19 +55,21 @@ export default function FeaturedProfile() {
               <img
                 src={profile.image}
                 alt={profile.name}
-                className="w-12 h-12 rounded-full object-cover mr-3"
+                className="w-10 h-10 rounded-full object-cover mr-3 border-2"
               />
               <div>
-                <p className="font-small">{profile.name}</p>
-                <p className="text-sm text-gray-500">{profile.title}</p>
+                <p className="text-sm">{profile.name}</p>
+                <p className="text-xs text-gray-500">{profile.title}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="p-6">
-        <h2 className="text-xl font-semibold border-b pb-2">Events</h2>
+      <div className="p-2">
+        <h2 className="text-xl font-semibold border-b pb-2 text-center">
+          Events
+        </h2>
         <div className="mt-4">
           {events.map((event) => (
             <div
@@ -98,13 +85,13 @@ export default function FeaturedProfile() {
                   />
                 </div>
                 <div>
-                  <p className="font-medium">{event.name}</p>
-                  <p className="text-sm text-gray-500">{event.date}</p>
+                  <p className="text-sm">{event.name}</p>
+                  <p className="text-xs text-gray-500">{event.date}</p>
                 </div>
               </div>
-              <button className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
+              {/* <button className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
                 <span className="text-xl">+</span>
-              </button>
+              </button> */}
             </div>
           ))}
         </div>

@@ -3,7 +3,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 export default function Header() {
   return (
-    <header className=" text-black h-20 flex items-center  px-6">
+    <header className=" text-black h-20 flex items-center  px-6 border-2 ">
       {/* <h1 className="text-lg border-2">EduNet</h1> */}
       <div className="flex items-center space-x-4 border-2 w-2/5 ml-auto justify-evenly">
         <input
