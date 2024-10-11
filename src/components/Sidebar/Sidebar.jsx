@@ -61,18 +61,25 @@ export default function Sidebar() {
 
         {paths.map((ind) => {
           const IconComponent = ind.icon;
-          const isActive = pathname === ind.path; // Compare pathname directly
+          const isActive = pathname === ind.path;
 
           return (
-            <div
+            <Link
+              href={ind.path}
               key={ind.title}
-              className={`w-full h-10 flex justify-start items-center  p-2 ${
+              passHref
+              className={`w-full h-10  ${
                 isActive ? "bg-gray-300 text-black rounded-lg" : "text-black"
               }`}
             >
-              <IconComponent sx={{ fontSize: 28 }} />
-              <p className="ml-2">{ind.title}</p>
-            </div>
+              <div
+                key={ind.title}
+                className="flex justify-start items-center  p-2"
+              >
+                <IconComponent sx={{ fontSize: 28 }} />
+                <p className="ml-2">{ind.title}</p>
+              </div>
+            </Link>
           );
         })}
       </div>
