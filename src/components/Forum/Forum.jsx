@@ -48,9 +48,9 @@ const ForumComponent = () => {
   ];
 
   return (
-    <div className="container mx-auto px-6 py-8 bg-gray-50 min-h-0 flex-grow overflow-y-auto">
+    <div className="container mx-auto px-6 py-8  min-h-0 flex-grow overflow-y-auto">
       <h1 className="text-3xl font-bold mb-6">All Forums</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
         {forumPosts.map((post, index) => (
           <ForumCard key={index} {...post} />
         ))}

@@ -8,6 +8,7 @@ import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import FolderIcon from "@mui/icons-material/Folder";
 import SettingsIcon from "@mui/icons-material/Settings";
+import PhoneIcon from "@mui/icons-material/Phone";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -46,6 +47,11 @@ const paths = [
     title: "Settings",
     path: "/settings",
     icon: SettingsIcon,
+  },
+  {
+    title: "Contact Us",
+    path: "/contact",
+    icon: PhoneIcon,
   },
 ];
 

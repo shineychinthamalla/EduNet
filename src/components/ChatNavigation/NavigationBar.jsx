@@ -5,9 +5,9 @@ const TopNav = ({ activeTab, onTabChange }) => {
     <nav className="flex items-center justify-start py-4 px-6 bg-white border-b">
       <button
         onClick={() => onTabChange("chat")}
-        className={`mr-4 px-4 py-2 rounded-full ${
+        className={`mr-4 px-4 py-2 rounded-md ${
           activeTab === "chat"
-            ? "bg-blue-500 text-white"
+            ? "bg-gray-200 text-black"
             : "text-gray-600 hover:bg-gray-100"
         }`}
       >
@@ -15,9 +15,9 @@ const TopNav = ({ activeTab, onTabChange }) => {
       </button>
       <button
         onClick={() => onTabChange("forum")}
-        className={`px-4 py-2 rounded-full ${
+        className={`px-4 py-2 rounded-md ${
           activeTab === "forum"
-            ? "bg-blue-500 text-white"
+            ? "bg-gray-200 text-black"
             : "text-gray-600 hover:bg-gray-100"
         }`}
       >
