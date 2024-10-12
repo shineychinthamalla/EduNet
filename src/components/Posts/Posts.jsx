@@ -7,7 +7,7 @@ import { Button, Card, CardContent, Typography } from "@mui/material";
 
 export default function Posts() {
   return (
-    <div className="relative w-full h-full mx-auto overflow-y-auto">
+    <div className="relative w-full h-full mx-auto ">
       <div class="bg-gray-100 rounded-lg p-6 shadow-md  mx-auto">
         <h2 class="text-sm font-bold text-black">NEW POST</h2>
         <hr class="my-4 border-gray-400" />
