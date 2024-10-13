@@ -63,7 +63,7 @@ export default function Sidebar() {
     <nav className="w-64 h-full bg-gray-100 p-8 border-r">
       <div
         className={`flex flex-col items-center ${
-          isLoggedIn ? "h-4/5" : "h-2/5"
+          isLoggedIn ? "h-5/6" : "h-2/6"
         } justify-between`}
       >
         <div className="w-full h-32 flex justify-center items-center">

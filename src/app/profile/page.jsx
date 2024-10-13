@@ -1,6 +1,6 @@
 "use client";
 
-import Profile from "@/components/Profile/profile";
+import Profile from "../../components/Profile/profile";
 import React from "react";
 
 const ProfilePage = () => {

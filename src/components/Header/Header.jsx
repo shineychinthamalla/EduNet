@@ -2,11 +2,14 @@ import PersonIcon from "@mui/icons-material/Person";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { setSignOut } from "@/app/redux/slices/authSlice";
+import { setSignOut } from "../../app/redux/slices/authSlice";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [user, setUser] = useState("");
+
+  const router = useRouter();
 
   const state = useSelector((state) => state.auth);
   const isLoggedIn = state.isAuthenticated;
@@ -21,6 +24,7 @@ export default function Header() {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+    router.push("/");
     dispatch(setSignOut());
   };
 

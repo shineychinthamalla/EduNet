@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSignIn } from "@/app/redux/slices/authSlice"; // Adjust the path
+import { setSignIn } from "../../app/redux/slices/authSlice"; // Adjust the path
 import { useRouter } from "next/navigation"; // Use for navigation in Next.js app router
 
 export default function LoginForm() {

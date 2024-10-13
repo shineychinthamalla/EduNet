@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import ChatWindow from "@/components/Chat/Chat";
-import MessageInput from "@/components/ChatInput/ChatInput";
-import ChatList from "@/components/ChatList/ChatList";
-import TopNav from "@/components/ChatNavigation/NavigationBar";
-import ForumComponent from "@/components/Forum/Forum";
+import ChatWindow from "../../components/Chat/Chat";
+import MessageInput from "../../components/ChatInput/ChatInput";
+import ChatList from "../../components/ChatList/ChatList";
+import TopNav from "../../components/ChatNavigation/NavigationBar";
+import ForumComponent from "../../components/Forum/Forum";
 
 const Networking = () => {
   const [activeTab, setActiveTab] = useState("chat"); // 'chat' or 'forum'

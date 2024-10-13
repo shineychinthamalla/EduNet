@@ -1,7 +1,7 @@
 "use client";
 
-import LandingPage from "@/components/Landing Page/LandingPage";
-import Posts from "@/components/Posts/Posts";
+import LandingPage from "../components/Landing Page/LandingPage";
+import Posts from "../components/Posts/Posts";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 

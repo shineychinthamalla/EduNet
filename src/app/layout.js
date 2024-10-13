@@ -1,11 +1,11 @@
 "use client";
 
 import "./globals.css";
-import Sidebar from "@/components/Sidebar/Sidebar";
-import Header from "@/components/Header/Header";
-import FeaturedProfile from "@/components/Featured/Featured";
+import Sidebar from "../components/Sidebar/Sidebar";
+import Header from "../components/Header/Header";
+import FeaturedProfile from "../components/Featured/Featured";
 import { Provider } from "react-redux";
-import { store } from "@/app/redux/store";
+import { store } from "../app/redux/store";
 
 export default function RootLayout({ children }) {
   return (

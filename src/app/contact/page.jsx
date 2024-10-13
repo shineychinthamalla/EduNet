@@ -1,6 +1,6 @@
 "use client";
 
-import ContactUs from "@/components/Contact/Contact";
+import ContactUs from "../../components/Contact/Contact";
 
 export default function ContactUsPage() {
   return (

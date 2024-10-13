@@ -1,6 +1,6 @@
 "use client";
 
-import SettingsForm from "@/components/Settings/Settings";
+import SettingsForm from "../../components/Settings/Settings";
 import React from "react";
 
 const Settings = () => {
