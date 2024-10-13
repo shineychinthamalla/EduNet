@@ -38,33 +38,3 @@ const Resources = () => {
 };
 
 export default Resources;
-
-
-// "use client";
-//
-// import React, { useState } from "react";
-// import CareerDevelopment from "../../components/CareerDevelopment/CareerDevelopment";
-// import MentorshipProgram from "../../components/MentorshipProgram/MentorshipProgram";
-// import ResourcesTopNavigation from "../../components/ResourcesNavigation/ResourcesNavigation";
-//
-// const Resources = () => {
-//   const [activeTab, setActiveTab] = useState("career"); // 'career' or 'mentorship'
-//
-//   return (
-//     <div className="h-screen flex flex-col">
-//       {/* Top Navigation */}
-//       <ResourcesTopNavigation activeTab={activeTab} onTabChange={(tab) => setActiveTab(tab)} />
-//
-//       {/* Content Area */}
-//       <div className="flex flex-grow mt-4">
-//         {activeTab === "career" ? (
-//           <CareerDevelopment />
-//         ) : (
-//           <MentorshipProgram />
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-//
-// export default Resources;
