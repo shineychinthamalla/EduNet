@@ -1,4 +1,4 @@
-import Posts from "@/components/Posts/Posts";
+import Posts from "../components/Posts/Posts";
 import Image from "next/image";
 
 export default function Home() {
