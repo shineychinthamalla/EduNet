@@ -5,7 +5,7 @@ import React from "react";
 
 const JobsPage = () => {
   return (
-    <div className="min-h-full bg-gray-100">
+    <div className="h-full">
       <Jobs />
     </div>
   );
