@@ -1,4 +1,3 @@
-// app/components/Sidebar.js
 "use client";
 import Image from "next/image";
 import HomeIcon from "@mui/icons-material/Home";
@@ -11,6 +10,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const paths = [
   {
@@ -57,36 +57,71 @@ const paths = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
 
   return (
-    <nav className="w-64 h-full bg-gray-100 p-8 border-r ">
-      <div className="flex flex-col items-center h-4/5 justify-between ">
-        <div className="w-full h-32 flex justify-center items-center ">
+    <nav className="w-64 h-full bg-gray-100 p-8 border-r">
+      <div
+        className={`flex flex-col items-center ${
+          isLoggedIn ? "h-4/5" : "h-2/5"
+        } justify-between`}
+      >
+        <div className="w-full h-32 flex justify-center items-center">
           <Image src="/logo1.svg" height={200} width={150} alt="Logo 1" />
         </div>
 
-        {paths.map((ind) => {
-          const IconComponent = ind.icon;
-          const isActive = pathname === ind.path;
+        {paths.map((item) => {
+          const IconComponent = item.icon;
+          const isActive = pathname === item.path;
 
-          return (
-            <Link
-              href={ind.path}
-              key={ind.title}
-              passHref
-              className={`w-full h-10  ${
-                isActive ? "bg-gray-300 text-black rounded-lg" : "text-black"
-              }`}
-            >
-              <div
-                key={ind.title}
-                className="flex justify-start items-center  p-2"
+          // Show only "Home" and "Contact Us" if not logged in
+          if (
+            !isLoggedIn &&
+            (item.title === "Home" || item.title === "Contact Us")
+          ) {
+            return (
+              <Link
+                href={item.path}
+                key={item.title}
+                passHref
+                className={`w-full h-10 ${
+                  isActive ? "bg-gray-300 text-black rounded-lg" : "text-black"
+                }`}
               >
-                <IconComponent sx={{ fontSize: 28 }} />
-                <p className="ml-2">{ind.title}</p>
-              </div>
-            </Link>
-          );
+                <div
+                  key={item.title}
+                  className="flex justify-start items-center p-2"
+                >
+                  <IconComponent sx={{ fontSize: 28 }} />
+                  <p className="ml-2">{item.title}</p>
+                </div>
+              </Link>
+            );
+          }
+
+          // Show all items if logged in
+          if (isLoggedIn) {
+            return (
+              <Link
+                href={item.path}
+                key={item.title}
+                passHref
+                className={`w-full h-10 ${
+                  isActive ? "bg-gray-300 text-black rounded-lg" : "text-black"
+                }`}
+              >
+                <div
+                  key={item.title}
+                  className="flex justify-start items-center p-2"
+                >
+                  <IconComponent sx={{ fontSize: 28 }} />
+                  <p className="ml-2">{item.title}</p>
+                </div>
+              </Link>
+            );
+          }
+
+          return null;
         })}
       </div>
     </nav>

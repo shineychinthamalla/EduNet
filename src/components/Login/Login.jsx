@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+// app/login/page.js
+"use client";
 
-function Login() {
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSignIn } from "@/app/redux/slices/authSlice"; // Adjust the path
+import { useRouter } from "next/navigation"; // Use for navigation in Next.js app router
+
+export default function LoginForm() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -8,6 +14,10 @@ function Login() {
 
   const [formErrors, setFormErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [isInvalid, setIsInvalid] = useState(false);
+
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
@@ -18,28 +28,45 @@ function Login() {
 
   const validateForm = () => {
     let errors = {};
-    // Email validation
     if (!formData.email) {
       errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = "Email is invalid";
     }
-    // Password validation
     if (!formData.password) {
       errors.password = "Password is required";
     } else if (formData.password.length < 6) {
       errors.password = "Password must be at least 6 characters long";
     }
-
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
     const errors = validateForm();
     if (Object.keys(errors).length === 0) {
-      console.log("Login Successful", formData);
-      // Proceed with login logic here
+      // Handle predefined user credentials
+      if (
+        formData.email === "student@uta.com" &&
+        formData.password === "password"
+      ) {
+        router.push("/");
+        dispatch(setSignIn("student"));
+      } else if (
+        formData.email === "professor@uta.com" &&
+        formData.password === "password"
+      ) {
+        router.push("/");
+        dispatch(setSignIn("professor"));
+      } else if (
+        formData.email === "admin@uta.com" &&
+        formData.password === "password"
+      ) {
+        router.push("/");
+        dispatch(setSignIn("admin"));
+      } else {
+        setIsInvalid(true);
+      }
     } else {
       setFormErrors(errors);
     }
@@ -48,7 +75,7 @@ function Login() {
   return (
     <div className="max-w-lg mx-auto p-8 border border-gray-300 rounded-md">
       <h2 className="text-2xl font-bold mb-6">Login</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleOnSubmit} className="space-y-4">
         <div>
           <input
             type="email"
@@ -90,9 +117,10 @@ function Login() {
         >
           Login
         </button>
+        {isInvalid && (
+          <p className="text-red-500 mt-2">Invalid email or password</p>
+        )}
       </form>
     </div>
   );
 }
-
-export default Login;
