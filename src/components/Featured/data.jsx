@@ -1,4 +1,4 @@
-const profiles = [
+export const profiles = [
   {
     name: "Florencio Dorrance",
     title: "Market Development Manager",
@@ -31,7 +31,7 @@ const profiles = [
   },
 ];
 
-const events = [
+export const events = [
   {
     id: 1,
     name: "Create An LMS Website With EduNet",

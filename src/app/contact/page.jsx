@@ -1,3 +1,11 @@
-export default function ContactUs() {
-  return <div>Hello from Contact</div>;
+"use client";
+
+import ContactUs from "@/components/Contact/Contact";
+
+export default function ContactUsPage() {
+  return (
+    <div>
+      <ContactUs />
+    </div>
+  );
 }
